@@ -8,6 +8,7 @@ proxied = FlaskBehindProxy(app)
 app.config['SECRET_KEY'] = '44f306bfdc13814e93ac0e1cab945fca'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 
 class User(db.Model):
