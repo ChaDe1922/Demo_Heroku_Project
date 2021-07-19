@@ -27,7 +27,7 @@ def __repr__(self):
 def hello_world():
     return render_template('home.html',
                            subtitle='Home Page',
-                           text='This is the text for the home page. I am checking the CD to HEROKU!')
+                           text='This is the home page. CHECK ME FOR CD!!')
 
 
 @app.route("/second_page")
