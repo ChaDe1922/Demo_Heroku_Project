@@ -26,33 +26,33 @@ def __repr__(self):
 @app.route("/")
 def hello_world():
     return render_template('home.html',
-                            subtitle='Home Page',
-                            text='This is the text for the home page')
+                           subtitle='Home Page',
+                           text='This is the text for the home page')
 
 
 @app.route("/second_page")
 def second_page():
-    return render_template('second_page.html', 
-                            subtitle='Second Page', 
-                            text='This is the second page text')
+    return render_template('second_page.html',
+                           subtitle='Second Page',
+                           text='This is the second page text')
+
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
-  form = RegistrationForm()
+    form = RegistrationForm()
        
-  if form.validate_on_submit():
-    user = User(username=form.username.data, 
-                email=form.email.data, 
-                password=form.password.data
-               )
-    db.session.add(user)
-    db.session.commit()
-       
-  if form.validate_on_submit():  #checks if entries are valid
-    flash(f'Account created for {form.username.data}!', 'success')
+    if form.validate_on_submit():
+        user = User(username=form.username.data, 
+                    email=form.email.data, 
+                    password=form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        
+    if form.validate_on_submit():   #checks if entries are valid
+        flash(f'Account created for {form.username.data}!', 'success')
     
     return redirect(url_for('hello_world')) # if so - send to home page
     return render_template('register.html', title='Register', form=form)
     
 if __name__ == '__main__':
-       app.run(debug=True, host="0.0.0.0")
+    app.run(debug=True, host="0.0.0.0")
