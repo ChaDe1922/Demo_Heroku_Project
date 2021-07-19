@@ -26,15 +26,15 @@ def __repr__(self):
 @app.route("/")
 def hello_world():
     return render_template('home.html',
-                         subtitle='Home Page',
-                         text='This is the text for the home page')
+                            subtitle='Home Page',
+                            text='This is the text for the home page')
 
 
-  @app.route("/second_page")
-  def second_page():
-  return render_template('second_page.html', 
-                         subtitle='Second Page', 
-                         text='This is the second page text')
+@app.route("/second_page")
+def second_page():
+    return render_template('second_page.html', 
+                            subtitle='Second Page', 
+                            text='This is the second page text')
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
