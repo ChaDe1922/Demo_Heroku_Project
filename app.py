@@ -50,10 +50,10 @@ def register():
 
     if form.validate_on_submit():   # checks if entries are valid
         flash(f'Account created for {form.username.data}!', 'success')
-    
+
     return redirect(url_for('hello_world'))  # if so - send to home page
     return render_template('register.html', title='Register', form=form)
-    
+
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0")
