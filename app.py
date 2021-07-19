@@ -40,19 +40,20 @@ def second_page():
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
-       
+
     if form.validate_on_submit():
-        user = User(username=form.username.data, 
+        user = User(username=form.username.data,
                     email=form.email.data, 
                     password=form.password.data)
         db.session.add(user)
         db.session.commit()
         
-    if form.validate_on_submit():   #checks if entries are valid
+    if form.validate_on_submit():   # checks if entries are valid
         flash(f'Account created for {form.username.data}!', 'success')
     
-    return redirect(url_for('hello_world')) # if so - send to home page
+    return redirect(url_for('hello_world'))  # if so - send to home page
     return render_template('register.html', title='Register', form=form)
     
+
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0")
