@@ -21,7 +21,7 @@ def __repr__(self):
 
 @app.route("/")
 def hello_world():
-       return render_template('home.html', subtitle='Home Page', text='This is the home page')
+       return render_template('home.html', subtitle='Home Page', text='This is the text for the home page')
     
 @app.route("/second_page")
 def second_page():
